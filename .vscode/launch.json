@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (API)",
+            "name": ".NET(API)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build API",
             "program": "${workspaceFolder}/src/KubeLearn.API/bin/Debug/net6.0/KubeLearn.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/KubeLearn.API",
@@ -22,10 +22,10 @@
             }
         },
         {
-            "name": ".NET Core Launch (Web)",
+            "name": ".NET(Web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build Web",
             "program": "${workspaceFolder}/src/KubeLearn.Web/bin/Debug/net6.0/KubeLearn.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/KubeLearn.Web",
@@ -40,19 +40,23 @@
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
-        },
+        },        
         {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach"
-        },
-        {
-            "name": "Docker .NET Core Launch",
+            "name": "Docker(Web)",
             "type": "docker",
             "request": "launch",
-            "preLaunchTask": "docker-run: debug",
+            "preLaunchTask": "docker-run: debug web",
             "netCore": {
                 "appProject": "${workspaceFolder}/src/KubeLearn.Web/KubeLearn.Web.csproj"
+            }
+        },
+        {
+            "name": "Docker(API)",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug api",
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/KubeLearn.API/KubeLearn.API.csproj"
             }
         }
     ]

@@ -14,12 +14,36 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build Web",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/KubeLearn.Web/KubeLearn.Web.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "publish API",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "publish",
                 "${workspaceFolder}/src/KubeLearn.API/KubeLearn.API.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish Web",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/src/KubeLearn.Web/KubeLearn.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -38,10 +62,22 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "watch Web",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/src/KubeLearn.Web/KubeLearn.Web.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "type": "docker-build",
-            "label": "docker-build: debug",
+            "label": "docker-build: debug Web",
             "dependsOn": [
-                "build"
+                "build Web"
             ],
             "dockerBuild": {
                 "tag": "kuberneteslearn:dev",
@@ -56,9 +92,42 @@
         },
         {
             "type": "docker-build",
+            "label": "docker-build: debug Api",
+            "dependsOn": [
+                "build API"
+            ],
+            "dockerBuild": {
+                "tag": "kuberneteslearn:dev",
+                "target": "base",
+                "dockerfile": "${workspaceFolder}/src/Dockerfile.Api",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/KubeLearn.Api/KubeLearn.Api.csproj"
+            }
+        },
+        {
+            "type": "docker-build",
             "label": "docker-build: release API",
             "dependsOn": [
-                "build"
+                "build API"
+            ],
+            "dockerBuild": {
+                "tag": "kuberneteslearn:latest",
+                "dockerfile": "${workspaceFolder}/src/Dockerfile.API",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/KubeLearn.API/KubeLearn.API.csproj"
+            }
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: release Web",
+            "dependsOn": [
+                "build Web"
             ],
             "dockerBuild": {
                 "tag": "kuberneteslearn:latest",
@@ -72,9 +141,9 @@
         },
         {
             "type": "docker-run",
-            "label": "docker-run: debug",
+            "label": "docker-run: debug web",
             "dependsOn": [
-                "docker-build: debug"
+                "docker-build: debug Web",
             ],
             "dockerRun": {},
             "netCore": {
@@ -84,13 +153,36 @@
         },
         {
             "type": "docker-run",
-            "label": "docker-run: release",
+            "label": "docker-run: debug api",
             "dependsOn": [
-                "docker-build: release"
+                "docker-build: debug Api",
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/KubeLearn.API/KubeLearn.API.csproj",
+                "enableDebugging": true
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: release web",
+            "dependsOn": [
+                "docker-build: release web"
             ],
             "dockerRun": {},
             "netCore": {
                 "appProject": "${workspaceFolder}/src/KubeLearn.Web/KubeLearn.Web.csproj"
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: release api",
+            "dependsOn": [
+                "docker-build: release api"
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/KubeLearn.API/KubeLearn.API.csproj"
             }
         }
     ]
