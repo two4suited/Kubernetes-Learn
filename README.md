@@ -14,7 +14,9 @@
 - [ ] Deployment, Service for MongoDB
 - [ ] Helm Charts for all three components
 - [ ] Tilt can pickup helm charts
-
+- [ ] Choose a Dashboard and install it
+- [ ] Deployment using Github Actions
+- [ ] Logging provider in Kubernetes
 ## Extra Features
 - [ ] Authentication
 - [ ] Storage for MongoDB
@@ -23,5 +25,5 @@
 
 - .NET 6
 - Docker Desktop
-- Tilt
+- (Tilt)[https://tilt.dev]
 - Helm
