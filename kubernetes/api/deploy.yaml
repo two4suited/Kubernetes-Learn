@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapi
+  namespace: kubelearn
+  labels:
+    app: kubelearnapp
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:      
+      service: webapi
+  template:
+    metadata:
+      labels:
+        app: kubelearnapp
+        service: webapi
+    spec:
+      containers:
+      - name: webapi
+        image: two4suited/kubelearnapp-api
+        ports:
+          - containerPort: 80
+            protocol: TCP
+        env:
+        - name: "ASPNETCORE_ENVIRONMENT"
+          value: "Development"
+        - name: "ASPNETCORE_FORWARDEDHEADERS_ENABLED"
+          value: "true"
+        - name: ASPNETCORE_URLS
+          value: http://+:80
+

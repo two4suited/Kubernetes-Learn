@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>ba8345fd-99ff-4d4b-ab46-5b36cfd217e8</UserSecretsId>
   </PropertyGroup>
 
