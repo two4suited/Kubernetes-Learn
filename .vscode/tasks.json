@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build API",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -14,7 +14,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
+            "label": "publish API",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -26,7 +26,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch",
+            "label": "watch API",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -46,7 +46,7 @@
             "dockerBuild": {
                 "tag": "kuberneteslearn:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/src/KubeLearn.Web/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Dockerfile.Web",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
@@ -56,13 +56,13 @@
         },
         {
             "type": "docker-build",
-            "label": "docker-build: release",
+            "label": "docker-build: release API",
             "dependsOn": [
                 "build"
             ],
             "dockerBuild": {
                 "tag": "kuberneteslearn:latest",
-                "dockerfile": "${workspaceFolder}/src/KubeLearn.Web/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Dockerfile.Web",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
