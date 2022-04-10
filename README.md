@@ -25,5 +25,5 @@
 
 - .NET 6
 - Docker Desktop
-- (Tilt)[https://tilt.dev]
+- [Tilt](https://tilt.dev)
 - Helm
