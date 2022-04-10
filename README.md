@@ -7,7 +7,7 @@
 - Create a fully functional app with web front end, api backend, and mongo db that is apply to run locally and on any cloud provider
 
 ## Todo
-- [ ] API using .Net 6 with minimal api
+- [X] API using .Net 6
 - [ ] Blazor App that calls into API
 - [ ] Namespace in Kubernetes in YAML config
 - [ ] Tilt to auto deploy locally on changes
