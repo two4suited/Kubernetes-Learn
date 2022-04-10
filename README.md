@@ -28,4 +28,4 @@
 - [Tilt](https://tilt.dev)
 - [Helm](https://helm.sh/)
 
-## Usefull Reasources
+## Resources
