@@ -26,4 +26,6 @@
 - .NET 6
 - Docker Desktop
 - [Tilt](https://tilt.dev)
-- Helm
+- [Helm](https://helm.sh/)
+
+## Usefull Reasources
