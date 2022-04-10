@@ -1,5 +1,7 @@
 # Learn Kubernetes
 
+[WIKI](https://github.com/two4suited/Kubernetes-Learn/wiki)
+
 ## Goal
 
 - Create a fully functional app with web front end, api backend, and mongo db that is apply to run locally and on any cloud provider
