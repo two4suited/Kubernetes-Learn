@@ -1,0 +1,29 @@
+# Default values for kubelearn.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespace: kubelearn
+app: kubelearnapp
+
+mongodb:
+
+webapi:
+  name: webapi  
+  image: 
+    repository: two4suited/kubelearnapp-api
+    pullPolicy: IfNotPresent
+    tag: ""
+  service:
+    port: 80
+  replicateCount: 1
+webapp:
+  name: webapp  
+  image: 
+    repository: two4suited/kubelearnapp-web
+    pullPolicy: IfNotPresent
+    tag: ""
+  service:
+    type: LoadBalancer
+    port: 80
+  replicateCount: 1
+
