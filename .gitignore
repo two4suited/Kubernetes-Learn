@@ -383,3 +383,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+src/.idea/.idea.KubeLearn/.idea/encodings.xml
+src/.idea/.idea.KubeLearn/.idea/.gitignore
+src/.idea/.idea.KubeLearn/.idea/.name
+src/.idea/.idea.KubeLearn/.idea/indexLayout.xml
