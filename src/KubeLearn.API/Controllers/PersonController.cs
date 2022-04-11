@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KubeLearn.API.Controllers.Models;
+using KubeLearn.API.Services;
 using KubeLearn.Shared;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,28 +13,23 @@ namespace KubeLearn.API.Controllers
     [Route("[controller]")]
     public class PersonController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<PersonController> _logger;
+        private readonly IPersonService _personService;
 
-        public PersonController(ILogger<WeatherForecastController> logger)
+        public PersonController(ILogger<PersonController> logger,IPersonService personService)
         {
             this._logger = logger;
+            _personService = personService;
         }
         [HttpGet(Name = "Get People")]
-        public IEnumerable<Person> Get()
+        public async Task<IEnumerable<Person>> Get()
         {
-            return new List<Person>
-            {
-                new Person
-                {
-                    FirstName="Brian",
-                    LastName="Sheridan"
-                }
-            };
+            return await _personService.GetPeople();
         }
         [HttpPost(Name = "Add Person")]
-        public IActionResult AddPerson([FromBody] Person person)
+        public async Task<Person> AddPerson([FromBody] AddPerson person)
         {
-            return Ok(person);
+            return await _personService.AddPerson(person);
         }
     }
 }

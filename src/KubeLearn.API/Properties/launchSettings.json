@@ -16,7 +16,11 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7222;http://localhost:5104",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Mongo__ServerAddress": "localhost:27017",
+        "Mongo__UserName": "adminuser",
+        "Mongo__Password": "password123",
+        "Mongo__Database": "testing"
       }
     },
     "IIS Express": {
