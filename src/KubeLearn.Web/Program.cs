@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using KubeLearn.Web.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddHttpClient<PersonService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ApiServer"]);
+});
 
 var app = builder.Build();
 
