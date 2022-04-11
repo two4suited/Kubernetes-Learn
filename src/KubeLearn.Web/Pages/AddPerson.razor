@@ -1,8 +1,10 @@
 @page "/AddPerson"
 @using KubeLearn.Web.Data
 @using KubeLearn.Shared
+@using Microsoft.AspNetCore.Http.Extensions
 @using Microsoft.VisualBasic
 @inject PersonService  peopleService
+@inject NavigationManager NavManager
 <h3>AddPerson</h3>
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -19,5 +21,6 @@
     private async void HandleValidSubmit()
     {
         await peopleService.AddPerson(person);
+        NavManager.NavigateTo("/People");
     }
 }
