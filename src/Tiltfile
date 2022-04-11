@@ -4,8 +4,8 @@ docker_build('two4suited/kubelearnapp-web',context='.',dockerfile='Dockerfile.We
 k8s_yaml(['../kubernetes/api/deploy.yaml', '../kubernetes/api/service.yaml'])
 k8s_yaml(['../kubernetes/web/deploy.yaml', '../kubernetes/web/service.yaml'])
 
-
-
+#Database
+k8s_yaml(["../kubernetes/database/mongodb-deployment.yaml", "../kubernetes/database/mongodb-nodeport-svc.yaml","../kubernetes/database/mongodb-pv.yaml","../kubernetes/database/mongodb-pvc.yaml","../kubernetes/database/mongodb-secrets.yaml"])
 # Build Docker image
 #   Tilt will automatically associate image builds with the resource(s)
 #   that reference them (e.g. via Kubernetes or Docker Compose YAML).
