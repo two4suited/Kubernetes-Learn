@@ -1,0 +1,23 @@
+@page "/AddPerson"
+@using KubeLearn.Web.Data
+@using KubeLearn.Shared
+@using Microsoft.VisualBasic
+@inject PersonService  peopleService
+<h3>AddPerson</h3>
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="firstname" @bind-Value="person.FirstName" />
+    <InputText id="lastname" @bind-Value="person.LastName" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+@code {
+    private API.Controllers.Models.AddPerson person = new();
+
+    private async void HandleValidSubmit()
+    {
+        await peopleService.AddPerson(person);
+    }
+}

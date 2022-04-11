@@ -17,7 +17,7 @@ spec:
         service: webapp
     spec:
       containers:
-      - name: webapi
+      - name: webapp
         image: two4suited/kubelearnapp-web
         ports:
           - containerPort: 80
@@ -29,4 +29,6 @@ spec:
           value: "true"
         - name: ASPNETCORE_URLS
           value: http://+:80
+        - name: ApiServer
+          value: http://webapi
 

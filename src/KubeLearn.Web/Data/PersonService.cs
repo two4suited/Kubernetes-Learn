@@ -1,3 +1,5 @@
+using System.Text.Json;
+using KubeLearn.API.Controllers.Models;
 using KubeLearn.Shared;
 
 namespace KubeLearn.Web.Data;
@@ -15,6 +17,11 @@ public class PersonService
     {
         var people = await _client.GetFromJsonAsync<Person[]>("person");
         return people;
+    }
+    public async Task AddPerson(AddPerson person)
+    {
+        await _client.PostAsJsonAsync("person",person);
+        
     }
 
         

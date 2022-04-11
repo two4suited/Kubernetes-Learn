@@ -24,7 +24,7 @@ else
             @foreach (var person in people)
             {
                 <tr>
-                    <td>@person.FirstName</td>
+                    <td><a href="@person.Id">@person.FirstName</a></td>
                     <td>@person.LastName</td>
                   
                 </tr>

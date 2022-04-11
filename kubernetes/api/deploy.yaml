@@ -29,4 +29,18 @@ spec:
           value: "true"
         - name: ASPNETCORE_URLS
           value: http://+:80
+        - name: Mongo__UserName
+          valueFrom:
+            secretKeyRef:
+              name: mongo-creds
+              key: username
+        - name: Mongo__Password
+          valueFrom:
+            secretKeyRef:
+              name: mongo-creds
+              key: password
+        - name: Mongo__ServerAddress
+          value: mongo:27017
+        - name: Mongo__Database
+          value: "testing"
 

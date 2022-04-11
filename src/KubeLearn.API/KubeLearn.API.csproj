@@ -17,4 +17,8 @@
     <ProjectReference Include="..\KubeLearn.Shared\KubeLearn.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Models" />
+  </ItemGroup>
+
 </Project>
