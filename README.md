@@ -8,15 +8,15 @@
 
 ## Todo
 - [X] API using .Net 6
-- [ ] Blazor App that calls into API
-- [ ] Namespace in Kubernetes in YAML config
-- [ ] Tilt to auto deploy locally on changes
-- [ ] Deployment,Service for API
-- [ ] Deployment, Service for Web
-- [ ] Deployment, Service for MongoDB
+- [X] Blazor App that calls into API
+- [X] Namespace in Kubernetes in YAML config
+- [X] Tilt to auto deploy locally on changes
+- [X] Deployment,Service for API
+- [X] Deployment, Service for Web
+- [X] Deployment, Service for MongoDB
 - [ ] Helm Charts for all three components
 - [ ] Tilt can pickup helm charts
-- [ ] Choose a Dashboard and install it
+- [X] Choose a Dashboard and install it
 - [ ] Deployment using Github Actions
 - [ ] Logging provider in Kubernetes
 ## Extra Features
